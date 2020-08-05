@@ -38,7 +38,7 @@ public class Twelvedata_producer extends Thread {
                         twelvedataAPI.getStocks(p)
                 )).get();
                 System.out.println("Sent message: (" + messageNo + ", " + messageStr + ")");
-                TimeUnit.SECONDS.sleep(60);
+                TimeUnit.SECONDS.sleep(30);
             } catch (InterruptedException | ExecutionException e) {
                 e.printStackTrace();
             }

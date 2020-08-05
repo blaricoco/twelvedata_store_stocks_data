@@ -55,21 +55,24 @@ class Twelvedata_spark_streaming_consumer(p: Properties) extends Thread{
     record
   }
 
+
+
   override def run(): Unit = {
-
-    var sum = 0.0
-
+    var total = 0.0
     val df = messages.withColumn("jsonData", from_json(col("value"), schema_call)).select("jsonData.*")
 
     df.writeStream
       .format("console")
       .outputMode("append")
       .foreachBatch { (batchDF: DataFrame, batchId: Long) =>
+
         val data = transform_data(batchDF)
-        Thread.sleep(1000)
-        val data2 = data.withColumn("difference",col("high") - col("low"))
-        val mean = data2.select("difference").rdd.map(_(0).asInstanceOf[Double]).reduce(_+_) / 30
-        println(mean)
+        data.foreach(row => {
+          println(row(2).toString.toDouble)
+          total += row(2).toString.toDouble - row(3).toString.toDouble
+        })
+
+        println("total is : " + total)
 
       }
       .start()
