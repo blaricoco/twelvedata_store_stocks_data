@@ -1,1 +1,1 @@
-["sbt.Task[scala.collection.Seq[scala.Tuple2[java.nio.file.Path, sbt.nio.FileStamp]]]",{"hashes":[["/home/blarico/IdeaProjects/twelvedata_consumer/twelvedata/build.sbt","fc3555b3699e1a54fa288b8750037d3e8f793ff0"]],"lastModifiedTimes":[]}]
+["sbt.Task[scala.collection.Seq[scala.Tuple2[java.nio.file.Path, sbt.nio.FileStamp]]]",{"hashes":[["/home/blarico/IdeaProjects/twelvedata_consumer/twelvedata/build.sbt","80e0aced1dfc898fbf674f6182a0a065719b94a9"]],"lastModifiedTimes":[]}]
